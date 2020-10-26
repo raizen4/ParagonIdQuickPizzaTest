@@ -1,9 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 using ParagonIdTest.Models;
 
-namespace ParagonIdTest
+namespace ParagonIdTest.Interfaces
 {
     interface IFacade
     {

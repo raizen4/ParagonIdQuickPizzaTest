@@ -1,12 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 
 namespace ParagonIdTest.Models
 {
     public class Order
     {
-        public Pizza Pizza { get; set; }
+        public List<Pizza> Pizzas { get; set; }
 
         public string Id { get; set; }
 
