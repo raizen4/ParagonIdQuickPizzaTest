@@ -1,7 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Text;
+using System.ComponentModel;
 using ParagonIdTest.Models;
 
 namespace ParagonIdTest
@@ -10,11 +9,13 @@ namespace ParagonIdTest
     {
         public static Pizza CurrentPizza { get; set; }
 
-        public static ObservableCollection<Pizza> AllOrders { get; set; }
+        public static List<Pizza> AllOrders { get; set; }
 
-        public static ResetState()
+        public static int UserOverrideTimeToBake { get; set; }
+
+        public static void ResetCurrentPizza()
         {
-            CurrentPizza =new Pizza();
+            CurrentPizza = new Pizza();
         }
     }
 }

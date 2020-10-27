@@ -31,11 +31,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Converters\" />
-    <Folder Include="Enums\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <Compile Update="Views\PizzaToppings.xaml.cs">
       <DependentUpon>PizzaToppings.xaml</DependentUpon>
     </Compile>

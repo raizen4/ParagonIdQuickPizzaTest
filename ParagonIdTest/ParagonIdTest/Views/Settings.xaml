@@ -3,6 +3,21 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:prism="http://prismlibrary.com"
              prism:ViewModelLocator.AutowireViewModel="True"
-             x:Class="ParagonIdTest.Views.Settings">
+             x:Class="ParagonIdTest.Views.Settings"
+             Title="Settings">
   
+
+    <Grid ColumnDefinitions="100*" RowDefinitions="20*,60*,20*">
+        <StackLayout Orientation="Vertical" Grid.Row="1" Grid.Column="0" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+            <Label FontSize="Medium" FontAttributes="Bold" Text="Enter the new baking time in seconds" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
+            <Entry Keyboard="Numeric"  FontSize="Large" FontAttributes="Bold" Text="{Binding NewBakingTime}" WidthRequest="80"  HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
+
+        </StackLayout>
+
+        <StackLayout Grid.Row="2" Grid.Column="0" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+            <Button BackgroundColor="Blue" TextColor="Beige" Text="ApplySettings"  Command="{Binding ApplySettingsCommand}"></Button>
+            <Button BackgroundColor="Blue" TextColor="Beige" Text="Go to main menu"  Command="{Binding GoToMainPageCommand}"></Button>
+        </StackLayout>
+    </Grid>
+
 </ContentPage>

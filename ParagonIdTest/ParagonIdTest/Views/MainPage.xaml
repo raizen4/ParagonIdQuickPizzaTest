@@ -2,11 +2,10 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ParagonIdTest.Views.MainPage"
-
-             Title="{Binding Title}">
+             Title="Main Menu">
 
     <Grid ColumnDefinitions="100*" RowDefinitions="20*,50*,30*">
-        <Label FontSize="Large" FontAttributes="Bold" Grid.Row="0" Grid.Column="0" Text="Welcome to Lightning Pizza"  HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
+        <Label FontSize="Large" FontAttributes="Bold" Grid.Row="0" Grid.Column="0" Text="Welcome to Really Quick Pizza"  HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
 
         <StackLayout Grid.Row="1" Grid.Column="0" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
             <Button BackgroundColor="Blue" TextColor="Beige" Text="Order a new pizza" Command="{Binding BeginOrderCommand}"></Button>

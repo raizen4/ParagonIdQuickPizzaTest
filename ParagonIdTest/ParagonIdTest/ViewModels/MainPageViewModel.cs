@@ -19,10 +19,10 @@ namespace ParagonIdTest.ViewModels
             : base(navigationService)
         {
             BeginOrderCommand = new DelegateCommand(async () => await BeginOrder());
-             
+
 
             SeeStatusOfOrdersCommand = new DelegateCommand(async () =>
-                await NavigationService.NavigateAsync(nameof(OrderSummary)));
+                await NavigationService.NavigateAsync(nameof(OrdersStatuses)));
 
             GoToSettingsCommand = new DelegateCommand(async () =>
                 await NavigationService.NavigateAsync(nameof(Settings)));
@@ -30,7 +30,14 @@ namespace ParagonIdTest.ViewModels
 
         public async Task BeginOrder()
         {
-            State.CurrentPizza = new Pizza();
+            State.CurrentPizza = new Pizza
+            {
+                Id = Helpers.RandomString(),
+                TimeToBake = State.UserOverrideTimeToBake == 0
+                    ? Constants
+                        .DefaultBakeTimeInSeconds
+                    : State.UserOverrideTimeToBake
+            };
             await NavigationService.NavigateAsync(nameof(PizzaInitialDetails));
         }
     }
