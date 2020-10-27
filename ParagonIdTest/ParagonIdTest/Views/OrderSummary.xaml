@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="http://prismlibrary.com"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             x:Class="ParagonIdTest.Views.OrderSummary"
+             Title="Order Summary">
+
+    <Grid ColumnDefinitions="100*" RowDefinitions="15*,65*,20*">
+        <StackLayout Orientation="Horizontal" Grid.Row="0" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+            <Label FontSize="Large" FontAttributes="Bold"  Text="Order Id:" />
+            <Label FontSize="Large" FontAttributes="Bold" Text="{Binding OrderId}"
+                   HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" />
+        </StackLayout>
+      
+        <StackLayout Grid.Row="1" Grid.Column="0">
+           
+            <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand" VerticalOptions="StartAndExpand">
+                <Label FontSize="Medium" FontAttributes="Bold"  Text="Size" />
+                <Label FontSize="Medium"  Text="{Binding Size }" />
+            </StackLayout>
+
+            <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand" VerticalOptions="StartAndExpand">
+                <Label FontSize="Medium" FontAttributes="Bold"  Text="Crust Type: " />
+                <Label FontSize="Medium"   Text="{Binding CrustType}"  />
+            </StackLayout>
+            
+            <StackLayout Orientation="Horizontal"  HorizontalOptions="StartAndExpand" VerticalOptions="StartAndExpand">
+                <Label FontSize="Medium" FontAttributes="Bold"  Text="Cheese Type: "/>
+                <Label FontSize="Medium"  Text="{Binding CheeseType}" />
+            </StackLayout>
+          
+            <Label FontSize="Medium" FontAttributes="Bold"  Text="Toppings Chosen:"/>
+            <CollectionView
+                ItemsSource="{Binding Toppings}"
+                SelectionMode="None">
+            <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Label Padding="5,5,5,5" FontAttributes="Bold" FontSize="Large" Margin="15,0,0,0" Text="{Binding Name}" />
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+            
+            <StackLayout Orientation="Horizontal"  HorizontalOptions="StartAndExpand" VerticalOptions="StartAndExpand">
+                <Label FontSize="Medium" FontAttributes="Bold"  Text="Time to bake (mm/ss): "/>
+                <Label FontSize="Medium"  Text="{Binding TimeToBake}" />
+            </StackLayout>
+
+        </StackLayout>
+        <StackLayout Grid.Row="2">
+            <Button BackgroundColor="Blue" TextColor="Beige"  Text="Order"  Command="{Binding OrderCommand}"></Button>
+            <Button BackgroundColor="Blue" TextColor="Beige"  Text="Go to Toppings"  Command="{Binding GoToToppingsCommand}"></Button>
+        </StackLayout>
+      
+    </Grid>
+</ContentPage>

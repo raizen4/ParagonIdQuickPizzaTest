@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="http://prismlibrary.com"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             x:Class="ParagonIdTest.Views.PizzaInitialDetails"
+             Title="Let's Get Started">
+  
+    <StackLayout>
+        <Label FontAttributes="Bold" FontSize="Title" Margin="5,0,0,0" Text="Size" />
+        <CollectionView
+            ItemsSource="{Binding Sizes}"
+            SelectionMode="Single"
+            SelectedItem="{Binding SelectedSize}">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Label  Padding="10,10,10,10" FontAttributes="Bold" FontSize="17" Margin="15,0,0,0" Text="{Binding .}" />
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+        <Label FontAttributes="Bold" FontSize="Title" Margin="5,0,0,0" Text="Crust Type" />
+        <CollectionView
+            ItemsSource="{Binding CrustTypes}"
+            SelectionMode="Single"
+            SelectedItem="{Binding SelectedCrust}">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Label  Padding="10,10,10,10" FontAttributes="Bold"  FontSize="17" Margin="15,0,0,0" Text="{Binding .}" />
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+        <Label FontAttributes="Bold" FontSize="Title" Margin="5,0,0,0" Text="Cheese Type" />
+        <CollectionView
+            ItemsUpdatingScrollMode="KeepItemsInView"
+            ItemsSource="{Binding TypesOfCheese}"
+            SelectionMode="Single"
+            SelectedItem="{Binding SelectedCheese}">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Label  Padding="10,10,10,10" FontAttributes="Bold"  FontSize="17" Margin="15,0,0,0" Text="{Binding .}" />
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+        
+        <Button BackgroundColor="Blue" TextColor="Beige" Text="Choose Toppings"  Command="{Binding GoToToppingsCommand}"></Button>
+        <Button BackgroundColor="Blue" TextColor="Beige" Text="Go to main menu"  Command="{Binding GoToMainMenuCommand}"></Button>
+
+    </StackLayout>
+</ContentPage>

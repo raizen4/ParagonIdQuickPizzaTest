@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="http://prismlibrary.com"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             x:Class="ParagonIdTest.Views.OrdersStatuses"
+             xmlns:converters="clr-namespace:ParagonIdTest.Converters;assembly=ParagonIdTest"
+             Title="Current orders status">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converters:TimerConverter x:Key="TimerConverter" />
+            <converters:PizzaStatusConverter x:Key="PizzaStatusConverter" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <StackLayout>
+        <ListView
+            ItemsSource="{Binding ListOfOrders}"
+            SelectionMode="None"
+            HasUnevenRows="True"
+            SeparatorVisibility="Default"
+            SeparatorColor="Black">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout>
+                            <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand"
+                                         VerticalOptions="StartAndExpand">
+                                <Label FontSize="Small" FontAttributes="Bold" Text="Order Id:" />
+                                <Label FontSize="Small" FontAttributes="Bold" Text="{Binding Id}"
+                                       HorizontalOptions="StartAndExpand" VerticalOptions="StartAndExpand" />
+                            </StackLayout>
+
+                            <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand"
+                                         VerticalOptions="StartAndExpand">
+                                <Label FontSize="Small" FontAttributes="Bold" Text="Size" />
+                                <Label FontSize="Small" Text="{Binding Size }" />
+                            </StackLayout>
+
+                            <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand"
+                                         VerticalOptions="StartAndExpand">
+                                <Label FontSize="Small" FontAttributes="Bold" Text="Crust Type: " />
+                                <Label FontSize="Small" Text="{Binding CrustType}" />
+                            </StackLayout>
+
+                            <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand"
+                                         VerticalOptions="StartAndExpand">
+                                <Label FontSize="Small" FontAttributes="Bold" Text="Cheese Type: " />
+                                <Label FontSize="Small" Text="{Binding TypeOfCheese}" />
+                            </StackLayout>
+
+                            <Label FontSize="Small" FontAttributes="Bold" Text="Toppings Chosen:" />
+                            <StackLayout BindableLayout.ItemsSource="{Binding Toppings}">
+                                <BindableLayout.ItemTemplate>
+                                    <DataTemplate>
+                                        <Label Padding="5,5,5,5" FontAttributes="Bold" FontSize="Small"
+                                               Margin="15,0,0,0" Text="{Binding Name}" />
+                                    </DataTemplate>
+                                </BindableLayout.ItemTemplate>
+                            </StackLayout>
+
+                            <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand"
+                                         VerticalOptions="StartAndExpand">
+                                <Label FontSize="Medium" FontAttributes="Bold" Text="Status: " />
+                                <Label FontSize="Medium"
+                                       Text="{Binding Status, Mode=TwoWay, Converter={StaticResource PizzaStatusConverter}}" />
+                            </StackLayout>
+                            <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand"
+                                         VerticalOptions="StartAndExpand">
+                                <Label FontSize="Medium" FontAttributes="Bold" Text="Time to bake (mm/ss): " />
+                                <Label FontSize="Medium"
+                                       Text="{Binding TimeToBake, Mode=TwoWay, Converter={StaticResource TimerConverter}}" />
+                            </StackLayout>
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <StackLayout>
+            <Button BackgroundColor="Blue" TextColor="Beige" Text="Go Back To Menu"
+                    Command="{Binding GoToMainMenuCommand}" />
+        </StackLayout>
+    </StackLayout>
+</ContentPage>

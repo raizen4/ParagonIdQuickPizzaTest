@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="http://prismlibrary.com"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             x:Class="ParagonIdTest.Views.PizzaToppings"
+             Title="Choose Toppings">
+
+    <StackLayout>
+      
+        <CollectionView
+            ItemsSource="{Binding AvailableToppings}"
+            SelectionMode="Multiple"
+            SelectedItems="{Binding SelectedToppings}"
+            SelectionChanged="OnCollectionViewSelectionChanged">
+
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Label Padding="15,15,15,15" FontAttributes="Bold" FontSize="Large" Margin="15,0,0,0" Text="{Binding Name}" />
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+        <Button BackgroundColor="Blue" TextColor="Beige" Text="Go to summary"  Command="{Binding GoToSummaryCommand}"></Button>
+        <Button BackgroundColor="Blue" TextColor="Beige" Text="Initial pizza details"  Command="{Binding GoToInitialDetails}"></Button>
+    </StackLayout>
+
+
+</ContentPage>
