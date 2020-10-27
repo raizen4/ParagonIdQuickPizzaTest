@@ -1,3 +1,5 @@
+using ParagonIdTest.Interfaces;
+using ParagonIdTest.Services;
 using Prism;
 using Prism.Ioc;
 using ParagonIdTest.ViewModels;
@@ -26,10 +28,17 @@ namespace ParagonIdTest
         {
             containerRegistry.RegisterSingleton<IAppInfo, AppInfoImplementation>();
 
+            // Register pages for navigation
             containerRegistry.RegisterForNavigation<NavigationPage>();
             containerRegistry.RegisterForNavigation<MainPage, MainPageViewModel>();
-            containerRegistry.RegisterForNavigation<PizzaDetails, PizzaDetailsViewModel>();
+            containerRegistry.RegisterForNavigation<PizzaToppings, PizzaToppingsViewModel>();
             containerRegistry.RegisterForNavigation<Settings, SettingsViewModel>();
+            containerRegistry.RegisterForNavigation<OrderSummary, OrderSummaryViewModel>();
+            containerRegistry.RegisterForNavigation<PizzaInitialDetails, PizzaInitialDetailsViewModel>();
+
+            //Register singleton for services.
+            containerRegistry.Register<IFacade, Facade>();
+            containerRegistry.RegisterForNavigation<OrdersStatuses, OrdersStatusesViewModel>();
         }
     }
 }

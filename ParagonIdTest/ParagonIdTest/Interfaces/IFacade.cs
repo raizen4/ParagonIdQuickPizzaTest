@@ -3,7 +3,7 @@ using ParagonIdTest.Models;
 
 namespace ParagonIdTest.Interfaces
 {
-    interface IFacade
+    public interface IFacade
     {
         List<Topping> GetAvailableToppings();
     }

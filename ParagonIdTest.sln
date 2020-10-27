@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29613.14
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ParagonIdTest", "ParagonIdTest\ParagonIdTest\ParagonIdTest.csproj", "{61956A7C-25FA-466F-B3E7-B9FE6D8CC976}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ParagonIdTest", "ParagonIdTest\ParagonIdTest\ParagonIdTest.csproj", "{61956A7C-25FA-466F-B3E7-B9FE6D8CC976}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ParagonIdTest.Android", "ParagonIdTest\ParagonIdTest.Android\ParagonIdTest.Android.csproj", "{D577C950-4948-49F3-B1A5-3A97A563E0FA}"
 EndProject
